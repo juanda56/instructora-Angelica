@@ -15,7 +15,7 @@ CREATE TABLE cliente (
   correo VARCHAR(100) NOT NULL UNIQUE,
   ciudad VARCHAR(100) NOT NULL,
   id_banco INT,
-  FOREIGN KEY (id_banco) REFERENCES banco(id_banco)
+  CONSTRAINT fk_cliente_banco FOREIGN KEY (id_banco) REFERENCES banco(id_banco)
 );
 
 -- Tabla Crédito
@@ -25,5 +25,5 @@ CREATE TABLE credito (
   tipo_credito VARCHAR(50) NOT NULL,
   fecha_aprobacion DATE NOT NULL,
   id_cliente INT,
-  FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente)
+  CONSTRAINT fk_credito_cliente FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente)
 );
